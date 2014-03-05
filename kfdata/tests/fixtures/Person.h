@@ -22,6 +22,12 @@
 /** username (required) */
 @property (nonatomic, strong) username;
 
+/** companies (optional) */
+@property (nonatomic, strong) NSOrderedSet * companies;
+
+/** parent (required) */
+@property (nonatomic, strong) id parent;
+
 @end
 
 @implementation (KFAttribute)

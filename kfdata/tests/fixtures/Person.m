@@ -15,6 +15,11 @@
 @dynamic lastName;
 @dynamic username;
 
+#pragma mark - Relationships
+
+@dynamic companies;
+@dynamic parent;
+
 @end
 
 @implementation (KFAttribute)

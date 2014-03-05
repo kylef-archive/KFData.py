@@ -4,6 +4,7 @@ from tempfile import NamedTemporaryFile
 
 from kfdata.entity import Entity
 from kfdata.attributes import StringAttribute
+from kfdata.relationship import Relationship
 from kfdata.generator import EntityInterfaceWriter, EntityImplementationWriter
 
 class GeneratorTests(unittest.TestCase):
@@ -12,6 +13,9 @@ class GeneratorTests(unittest.TestCase):
             StringAttribute('firstName', is_optional=True),
             StringAttribute('lastName', is_optional=True),
             StringAttribute('username', is_indexed=True),
+        ], relationships=[
+            Relationship('companies', is_optional=True, is_ordered=True),
+            Relationship('parent', is_optional=False, maximum_count=1)
         ])
 
     def test_entity_header_writer(self):

@@ -1,6 +1,6 @@
 from kfdata.entity import Entity
 from kfdata.parser.attributes import AttributeParser
-
+from kfdata.parser.relationship import RelationshipParser
 
 class EntityParser(object):
     @classmethod
@@ -15,5 +15,7 @@ class EntityParser(object):
         entity.attributes = [AttributeParser.parse(attribute_document) \
                 for attribute_document in attribute_documents]
 
-        return entity
+        entity.relationships = [RelationshipParser.parse(relationship_document) \
+                for relationship_document in relationship_documents]
 
+        return entity

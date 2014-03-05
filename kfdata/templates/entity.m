@@ -9,11 +9,21 @@
     return @"{{ entity }}";
 }
 
+{% if entity.attributes %}
 #pragma mark - Attributes
 
 {% for attribute in entity.attributes %}
 @dynamic {{ attribute }};
 {% endfor %}
+{% endif %}
+
+{% if entity.relationships %}
+#pragma mark - Relationships
+
+{% for relationship in entity.relationships %}
+@dynamic {{ relationship }};
+{% endfor %}
+{% endif %}
 
 @end
 

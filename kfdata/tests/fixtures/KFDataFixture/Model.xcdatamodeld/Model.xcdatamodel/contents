@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="13A584" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Company" syncable="YES">
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <relationship name="jobs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Job" inverseName="company" inverseEntity="Job" syncable="YES"/>
+        <relationship name="jobs" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Job" inverseName="company" inverseEntity="Job" syncable="YES"/>
     </entity>
     <entity name="Job" syncable="YES">
         <attribute name="manager" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
@@ -17,8 +17,8 @@
         <relationship name="job" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Job" inverseName="person" inverseEntity="Job" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Person" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Company" positionX="0" positionY="0" width="0" height="0"/>
         <element name="Job" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Person" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>
