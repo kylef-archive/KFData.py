@@ -5,7 +5,7 @@
 #import <CoreData/CoreData.h>
 #import <KFData/KFData.h>
 
-
+@class Country, CountryRelationshipAttribute;
 
 @interface PersonRelationshipAttribute : KFAttribute
 
@@ -36,10 +36,10 @@
 @property (nonatomic, strong) username;
 
 /** companies (optional) */
-@property (nonatomic, strong) NSOrderedSet * companies;
+@property (nonatomic, strong) NSOrderedSet *companies;
 
-/** parent (required) */
-@property (nonatomic, strong) id parent;
+/** country (required) */
+@property (nonatomic, strong) Country *country;
 
 @end
 
@@ -53,5 +53,11 @@
 
 /** username */
 + (KFAttribute *)username;
+
+/** companies */
++ (KFAttrbute *)companies;
+
+/** country */
++ (CountryRelationshipAttribute *)country;
 
 @end

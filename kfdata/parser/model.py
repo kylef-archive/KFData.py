@@ -22,6 +22,11 @@ class ModelParser(object):
 
         model.entities = entities
 
+        for entity in entities:
+            for relationship in entity.relationships:
+                entity = model.find_entity(relationship.destination_entity)
+                relationship.destination_entity_class_name = entity.represented_class_name
+
         return model
 
 
@@ -29,5 +34,3 @@ class ModelParser(object):
     def parse_file(cls, filename):
         document = parse(filename)
         return cls.parse(document)
-
-

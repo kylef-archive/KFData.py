@@ -2,6 +2,10 @@
 //
 
 #import "{{ entity }}.h"
+{% for relationship in entity.relationships %}
+{% if relationship.is_to_one %}#import "{{ relationship.destination_entity }}.h"{% endif %}
+{% endfor %}
+
 
 {% if kfattribute %}
 @implementation {{ entity.represented_class_name }}RelationshipAttribute : KFAttribute
@@ -45,6 +49,12 @@
 {% for attribute in entity.attributes %}
 + (KFAttribute *){{ attribute }} {
     return [KFAttribute attributeWithKey:@"{{ attribute }}"];
+}
+
+{% endfor %}
+{% for relationship in entity.relationships %}
++ ({% if relationship.is_to_one %}{{ relationship.destination_entity_class_name }}RelationshipAttribute{% else %}KFAttrbute{% endif %} *){{ relationship }} {
+    return [{% if relationship.is_to_one %}{{ relationship.destination_entity_class_name }}RelationshipAttribute{% else %}KFAttrbute{% endif %} attributeWithKey:@"{{ relationship }}"];
 }
 
 {% endfor %}

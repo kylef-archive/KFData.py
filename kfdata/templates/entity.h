@@ -11,7 +11,10 @@
 #import <KFData/KFData.h>
 {% endif %}
 
-{{classes}}
+{% for relationship in entity.relationships %}
+{% if relationship.is_to_one %}@class {{ relationship.destination_entity_class_name }}{% if kfattribute %}, {{ relationship.destination_entity_class_name }}RelationshipAttribute{% endif %};{% endif %}
+{% endfor %}
+
 
 {% if kfattribute %}
 @interface {{ entity.represented_class_name }}RelationshipAttribute : KFAttribute
@@ -37,7 +40,7 @@
 {% endfor %}
 {% for relationship in entity.relationships %}
 /** {{ relationship.name }} ({% if relationship.is_optional %}optional{% else %}required{% endif %}) */
-@property (nonatomic, strong) {% if relationship.is_to_many %}NS{% if relationship.is_ordered %}Ordered{% endif %}Set *{% else %}id{% endif %} {{ relationship.name }};
+@property (nonatomic, strong) {% if relationship.is_to_many %}NS{% if relationship.is_ordered %}Ordered{% endif %}Set{% else %}{{ relationship.destination_entity_class_name }}{% endif %} *{{ relationship.name }};
 
 {% endfor %}
 @end
@@ -48,6 +51,11 @@
 {% for attribute in entity.attributes %}
 /** {{ attribute }} */
 + (KFAttribute *){{ attribute }};
+
+{% endfor %}
+{% for relationship in entity.relationships %}
+/** {{ relationship }} */
++ ({% if relationship.is_to_one %}{{ relationship.destination_entity_class_name }}RelationshipAttribute{% else %}KFAttrbute{% endif %} *){{ relationship }};
 
 {% endfor %}
 @end

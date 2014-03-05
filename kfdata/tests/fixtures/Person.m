@@ -2,6 +2,7 @@
 //
 
 #import "Person.h"
+#import "Country.h"
 
 @implementation PersonRelationshipAttribute : KFAttribute
 
@@ -34,7 +35,7 @@
 #pragma mark - Relationships
 
 @dynamic companies;
-@dynamic parent;
+@dynamic country;
 
 @end
 
@@ -50,6 +51,14 @@
 
 + (KFAttribute *)username {
     return [KFAttribute attributeWithKey:@"username"];
+}
+
++ (KFAttrbute *)companies {
+    return [KFAttrbute attributeWithKey:@"companies"];
+}
+
++ (CountryRelationshipAttribute *)country {
+    return [CountryRelationshipAttribute attributeWithKey:@"country"];
 }
 
 @end

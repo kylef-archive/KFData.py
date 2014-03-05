@@ -6,6 +6,7 @@ class Relationship(object):
         self.minimum_count = minimum_count
         self.maximum_count = maximum_count
         self.destination_entity = destination_entity
+        self.destination_entity_class_name = destination_entity
 
     def __str__(self):
         return self.name
