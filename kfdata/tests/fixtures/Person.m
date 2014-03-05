@@ -18,6 +18,16 @@
     return [KFAttribute attributeWithAttributes:self, [KFAttribute attributeWithKey:@"username"], nil];
 }
 
+/** companies */
+- (KFAttrbute *)companies {
+    return [KFAttrbute attributeWithAttributes:self, [KFAttribute attributeWithKey:companies], nil];
+}
+
+/** country */
+- (CountryRelationshipAttribute *)country {
+    return [CountryRelationshipAttribute attributeWithAttributes:self, [KFAttribute attributeWithKey:country], nil];
+}
+
 @end
 
 @implementation Person

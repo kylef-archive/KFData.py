@@ -24,6 +24,11 @@
 - (KFAttribute *){{ attribute }};
 
 {% endfor %}
+{% for relationship in entity.relationships %}
+/** {{ relationship }} */
+- ({% if relationship.is_to_one %}{{ relationship.destination_entity_class_name }}RelationshipAttribute{% else %}KFAttrbute{% endif %} *){{ relationship }};
+
+{% endfor %}
 @end
 {% endif %}
 

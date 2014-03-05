@@ -18,6 +18,12 @@
 /** username */
 - (KFAttribute *)username;
 
+/** companies */
+- (KFAttrbute *)companies;
+
+/** country */
+- (CountryRelationshipAttribute *)country;
+
 @end
 
 @interface Person : NSManagedObject

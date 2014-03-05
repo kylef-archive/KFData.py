@@ -16,6 +16,13 @@
 }
 
 {% endfor %}
+{% for relationship in entity.relationships %}
+/** {{ relationship }} */
+- ({% if relationship.is_to_one %}{{ relationship.destination_entity_class_name }}RelationshipAttribute{% else %}KFAttrbute{% endif %} *){{ relationship }} {
+    return [{% if relationship.is_to_one %}{{ relationship.destination_entity_class_name }}RelationshipAttribute{% else %}KFAttrbute{% endif %} attributeWithAttributes:self, [KFAttribute attributeWithKey:{{ relationship }}], nil];
+}
+
+{% endfor %}
 @end
 {% endif %}
 
