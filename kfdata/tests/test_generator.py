@@ -14,8 +14,8 @@ class GeneratorTests(unittest.TestCase):
             StringAttribute('lastName', is_optional=True),
             StringAttribute('username', is_indexed=True),
         ], relationships=[
-            Relationship('companies', is_optional=True, is_ordered=True),
-            Relationship('parent', is_optional=False, maximum_count=1)
+            Relationship('companies', 'Company', is_optional=True, is_ordered=True),
+            Relationship('parent', 'Person', is_optional=False, maximum_count=1)
         ])
 
     def test_entity_header_writer(self):

@@ -21,6 +21,9 @@ class RelationshipParser(object):
         is_optional = document.getAttribute('optional') == 'YES'
         is_ordered = document.getAttribute('ordered') == 'YES'
 
-        return Relationship(name=name, minimum_count=minimum_count,
+        destination_entity = document.getAttribute('destinationEntity')
+
+        return Relationship(name=name, destination_entity=destination_entity,
+                            minimum_count=minimum_count,
                             maximum_count=maximum_count,
                             is_optional=is_optional, is_ordered=is_ordered)

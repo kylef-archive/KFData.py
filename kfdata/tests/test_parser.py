@@ -15,15 +15,15 @@ class ModelParserTests(unittest.TestCase):
             Entity('Company', attributes=[
                 StringAttribute('name'),
             ], relationships=[
-                Relationship('jobs', is_optional=True, is_ordered=True),
+                Relationship('jobs', 'Job', is_optional=True, is_ordered=True),
             ]),
 
             Entity('Job', attributes=[
                 BooleanAttribute('manager', default_value=False),
                 FloatAttribute('salary', default_value=0.0),
             ], relationships=[
-                Relationship('company', is_optional=True, maximum_count=1),
-                Relationship('person', is_optional=True, maximum_count=1),
+                Relationship('company', 'Company', is_optional=True, maximum_count=1),
+                Relationship('person', 'Person', is_optional=True, maximum_count=1),
             ]),
 
             Entity('Person', attributes=[
@@ -31,7 +31,7 @@ class ModelParserTests(unittest.TestCase):
                 StringAttribute('lastName', is_optional=True),
                 StringAttribute('username', is_indexed=True),
             ], relationships=[
-                Relationship('job', is_optional=True, maximum_count=1),
+                Relationship('job', 'Job', is_optional=True, maximum_count=1),
             ]),
         ]
         return model

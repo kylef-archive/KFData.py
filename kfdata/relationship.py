@@ -1,10 +1,11 @@
 class Relationship(object):
-    def __init__(self, name, is_optional=False, minimum_count=0, maximum_count=0, is_ordered=False):
+    def __init__(self, name, destination_entity, is_optional=False, minimum_count=0, maximum_count=0, is_ordered=False):
         self.name = name
         self.is_optional = is_optional
         self.is_ordered = is_ordered
         self.minimum_count = minimum_count
         self.maximum_count = maximum_count
+        self.destination_entity = destination_entity
 
     def __str__(self):
         return self.name
@@ -14,6 +15,7 @@ class Relationship(object):
 
     def __eq__(self, other):
         return self.name == other.name and \
+                self.destination_entity == other.destination_entity and \
                 self.is_optional == other.is_optional and \
                 self.minimum_count == other.minimum_count and \
                 self.maximum_count == other.maximum_count and \
