@@ -1,7 +1,7 @@
 KFData.py
 =========
 
-[![Build Status](https://travis-ci.org/kylef/kfdata.py.png?branch=master)](https://travis-ci.org/kylef/kfdata.py)
+[![Build Status](https://travis-ci.org/kylef/KFData.py.png?branch=master)](https://travis-ci.org/kylef/KFData.py)
 
 ## License
 
