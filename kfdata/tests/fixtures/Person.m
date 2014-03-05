@@ -49,7 +49,7 @@
 
 @end
 
-@implementation (KFAttribute)
+@implementation Person (KFAttribute)
 
 + (KFAttribute *)firstName {
     return [KFAttribute attributeWithKey:@"firstName"];

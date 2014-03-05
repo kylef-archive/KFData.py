@@ -51,7 +51,7 @@
 @end
 
 {% if kfattribute %}
-@implementation (KFAttribute)
+@implementation {{ entity.represented_class_name }} (KFAttribute)
 
 {% for attribute in entity.attributes %}
 /** {{ attribute }} */

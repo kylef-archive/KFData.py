@@ -49,7 +49,7 @@
 
 @end
 
-@implementation (KFAttribute)
+@implementation Person (KFAttribute)
 
 /** firstName */
 + (KFAttribute *)firstName;
