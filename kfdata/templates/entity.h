@@ -13,6 +13,17 @@
 
 {{classes}}
 
+{% if kfattribute %}
+@interface {{ entity.represented_class_name }}RelationshipAttribute : KFAttribute
+
+{% for attribute in entity.attributes %}
+/** {{ attribute }} */
+- (KFAttribute *){{ attribute }};
+
+{% endfor %}
+@end
+{% endif %}
+
 @interface {{ entity.represented_class_name }} : {{ entity.super_class_name }}
 
 + (NSString *)entityName;

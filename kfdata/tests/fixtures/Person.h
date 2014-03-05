@@ -7,6 +7,19 @@
 
 
 
+@interface PersonRelationshipAttribute : KFAttribute
+
+/** firstName */
+- (KFAttribute *)firstName;
+
+/** lastName */
+- (KFAttribute *)lastName;
+
+/** username */
+- (KFAttribute *)username;
+
+@end
+
 @interface Person : NSManagedObject
 
 + (NSString *)entityName;

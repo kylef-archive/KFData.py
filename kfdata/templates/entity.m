@@ -3,6 +3,18 @@
 
 #import "{{ entity }}.h"
 
+{% if kfattribute %}
+@implementation {{ entity.represented_class_name }}RelationshipAttribute : KFAttribute
+
+{% for attribute in entity.attributes %}
+- (KFAttribute *){{ attribute }} {
+    return [KFAttribute attributeWithAttributes:self, [KFAttribute attributeWithKey:@"{{ attribute }}"], nil];
+}
+
+{% endfor %}
+@end
+{% endif %}
+
 @implementation {{ entity.represented_class_name }}
 
 + (NSString *)entityName {

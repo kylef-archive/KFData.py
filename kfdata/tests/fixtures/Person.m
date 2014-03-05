@@ -3,6 +3,22 @@
 
 #import "Person.h"
 
+@implementation PersonRelationshipAttribute : KFAttribute
+
+- (KFAttribute *)firstName {
+    return [KFAttribute attributeWithAttributes:self, [KFAttribute attributeWithKey:@"firstName"], nil];
+}
+
+- (KFAttribute *)lastName {
+    return [KFAttribute attributeWithAttributes:self, [KFAttribute attributeWithKey:@"lastName"], nil];
+}
+
+- (KFAttribute *)username {
+    return [KFAttribute attributeWithAttributes:self, [KFAttribute attributeWithKey:@"username"], nil];
+}
+
+@end
+
 @implementation Person
 
 + (NSString *)entityName {
