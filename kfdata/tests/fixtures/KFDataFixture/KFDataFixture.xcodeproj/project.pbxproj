@@ -1,0 +1,85 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		77F9E8C117EF3D160019F29E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		77F9E8B917EF3CFA0019F29E = {
+			isa = PBXGroup;
+			children = (
+				77F9E8C017EF3D160019F29E /* Model.xcdatamodeld */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		77F9E8BA17EF3CFA0019F29E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+			};
+			buildConfigurationList = 77F9E8BD17EF3CFA0019F29E /* Build configuration list for PBXProject "KFDataFixture" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 77F9E8B917EF3CFA0019F29E;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		77F9E8BE17EF3CFA0019F29E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		77F9E8BF17EF3CFA0019F29E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		77F9E8BD17EF3CFA0019F29E /* Build configuration list for PBXProject "KFDataFixture" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77F9E8BE17EF3CFA0019F29E /* Debug */,
+				77F9E8BF17EF3CFA0019F29E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		77F9E8C017EF3D160019F29E /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				77F9E8C117EF3D160019F29E /* Model.xcdatamodel */,
+			);
+			currentVersion = 77F9E8C117EF3D160019F29E /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 77F9E8BA17EF3CFA0019F29E /* Project object */;
+}
