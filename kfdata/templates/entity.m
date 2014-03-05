@@ -3,23 +3,13 @@
 
 #import "{{ entity }}.h"
 
-@implementation {{entity.represented_class_name}}
+@implementation {{ entity.represented_class_name }}
 
 + (NSString *)entityName {
     return @"{{ entity }}";
 }
 
-{% if kfattribute %}
 #pragma mark - Attributes
-
-{% for attribute in entity.attributes %}
-/** {{ attribute }} */
-+ (KFAttribute *){{ attribute }} {
-    return [KFAttribute attributeWithKey:@"{{ attribute }}"];
-}
-
-{% endfor %}
-{% endif %}
 
 {% for attribute in entity.attributes %}
 @dynamic {{ attribute }};
@@ -27,3 +17,14 @@
 
 @end
 
+{% if kfattribute %}
+@implementation (KFAttribute)
+
+{% for attribute in entity.attributes %}
++ (KFAttribute *){{ attribute }} {
+    return [KFAttribute attributeWithKey:@"{{ attribute }}"];
+}
+
+{% endfor %}
+@end
+{% endif %}

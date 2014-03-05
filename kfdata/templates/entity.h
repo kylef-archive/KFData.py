@@ -7,23 +7,15 @@
 {% else %}
 #import <CoreData/CoreData.h>
 {% endif %}
-
+{% if kfattribute %}
+#import <KFData/KFData.h>
+{% endif %}
 
 {{classes}}
 
 @interface {{ entity.represented_class_name }} : {{ entity.super_class_name }}
 
 + (NSString *)entityName;
-
-{% if kfattribute %}
-#pragma mark - Attributes
-
-{% for attribute in entity.attributes %}
-/** {{ attribute }} */
-+ (KFAttribute *){{ attribute }};
-
-{% endfor %}
-{% endif %}
 
 #pragma mark - Properties
 
@@ -34,3 +26,13 @@
 {% endfor %}
 @end
 
+{% if kfattribute %}
+@implementation (KFAttribute)
+
+{% for attribute in entity.attributes %}
+/** {{ attribute }} */
++ (KFAttribute *){{ attribute }};
+
+{% endfor %}
+@end
+{% endif %}
