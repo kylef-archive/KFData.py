@@ -48,10 +48,10 @@
 @property (nonatomic, retain) NSString *username;
 
 /** companies (optional) */
-@property (nonatomic, strong) NSOrderedSet *companies;
+@property (nonatomic, retain) NSOrderedSet *companies;
 
 /** country (required) */
-@property (nonatomic, strong) Country *country;
+@property (nonatomic, retain) Country *country;
 
 @end
 
