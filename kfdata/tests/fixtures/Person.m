@@ -7,19 +7,19 @@
 @implementation PersonRelationshipAttribute : KFAttribute
 
 - (KFAttribute *)age {
-    return [KFAttribute attributeWithAttributes:self, [Person age]], nil];
+    return [KFAttribute attributeWithAttributes:self, [Person age], nil];
 }
 
 - (KFAttribute *)firstName {
-    return [KFAttribute attributeWithAttributes:self, [Person firstName]], nil];
+    return [KFAttribute attributeWithAttributes:self, [Person firstName], nil];
 }
 
 - (KFAttribute *)lastName {
-    return [KFAttribute attributeWithAttributes:self, [Person lastName]], nil];
+    return [KFAttribute attributeWithAttributes:self, [Person lastName], nil];
 }
 
 - (KFAttribute *)username {
-    return [KFAttribute attributeWithAttributes:self, [Person username]], nil];
+    return [KFAttribute attributeWithAttributes:self, [Person username], nil];
 }
 
 /** companies */

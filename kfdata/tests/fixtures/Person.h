@@ -55,7 +55,7 @@
 
 @end
 
-@implementation Person (CoreDataGeneratedAccessors)
+@interface Person (CoreDataGeneratedAccessors)
 
 - (void)addCompaniesObject:(NSManagedObject *)value;
 - (void)removeCompaniesObject:(NSManagedObject *)value;
@@ -64,7 +64,7 @@
 
 @end
 
-@implementation Person (KFAttribute)
+@interface Person (KFAttribute)
 
 /** age */
 + (KFAttribute *)age;

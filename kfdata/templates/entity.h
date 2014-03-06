@@ -50,7 +50,7 @@
 @end
 
 {% if entity.to_many_relationships %}
-@implementation {{ entity.represented_class_name }} (CoreDataGeneratedAccessors)
+@interface {{ entity.represented_class_name }} (CoreDataGeneratedAccessors)
 
 {% for relationship in entity.to_many_relationships %}
 - (void)add{{ relationship|capitalize }}Object:(NSManagedObject *)value;
@@ -63,7 +63,7 @@
 {% endif %}
 
 {% if kfattribute %}
-@implementation {{ entity.represented_class_name }} (KFAttribute)
+@interface {{ entity.represented_class_name }} (KFAttribute)
 
 {% for attribute in entity.attributes %}
 /** {{ attribute }} */
