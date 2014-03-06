@@ -39,13 +39,13 @@
 @property (nonatomic, assign) int32_t age;
 
 /** firstName (optional) */
-@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, retain) NSString *firstName;
 
 /** lastName (optional) */
-@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, retain) NSString *lastName;
 
 /** username (required) */
-@property (nonatomic, strong) NSString *username;
+@property (nonatomic, retain) NSString *username;
 
 /** companies (optional) */
 @property (nonatomic, strong) NSOrderedSet *companies;
