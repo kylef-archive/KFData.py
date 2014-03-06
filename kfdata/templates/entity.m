@@ -11,7 +11,7 @@
 
 {% for attribute in entity.attributes %}
 - ({{ attribute.attribute_class }} *){{ attribute }} {
-    return [KFAttribute attributeWithAttributes:self, [{{ entity.represented_class_name }} {{ attribute }}]], nil];
+    return [KFAttribute attributeWithAttributes:self, [{{ entity.represented_class_name }} {{ attribute }}], nil];
 }
 
 {% endfor %}
