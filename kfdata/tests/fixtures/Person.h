@@ -9,6 +9,9 @@
 
 @interface PersonRelationshipAttribute : KFAttribute
 
+/** age */
+- (KFAttribute *)age;
+
 /** firstName */
 - (KFAttribute *)firstName;
 
@@ -31,6 +34,9 @@
 + (NSString *)entityName;
 
 #pragma mark - Properties
+
+/** age (required) */
+@property (nonatomic, assign) int32_t age;
 
 /** firstName (optional) */
 @property (nonatomic, strong) NSString *firstName;
@@ -59,6 +65,9 @@
 @end
 
 @implementation Person (KFAttribute)
+
+/** age */
++ (KFAttribute *)age;
 
 /** firstName */
 + (KFAttribute *)firstName;

@@ -39,7 +39,7 @@
 
 {% for attribute in entity.attributes %}
 /** {{ attribute.name }} ({% if attribute.is_optional %}optional{% else %}required{% endif %}) */
-@property (nonatomic, strong) {{ attribute.class_name }}{{ attribute.name }};
+@property (nonatomic, {% if use_scalar_types and attribute.has_scalar_type %}assign{% else %}strong{% endif %}) {% if use_scalar_types and attribute.has_scalar_type %}{{ attribute.scalar_type }} {% else %}{{ attribute.class_name }}{% endif %}{{ attribute.name }};
 
 {% endfor %}
 {% for relationship in entity.relationships %}

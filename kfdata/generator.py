@@ -13,6 +13,7 @@ class EntityWriter(object):
         return {
             'kfattribute': True,
             'entity': self.entity,
+            'use_scalar_types': True,
         }
 
     def write(self, destination_file):
@@ -28,4 +29,3 @@ class EntityInterfaceWriter(EntityWriter):
 
 class EntityImplementationWriter(EntityWriter):
     template_name = 'entity.m'
-

@@ -1,5 +1,6 @@
 class Attribute(object):
     class_name = 'id '
+    has_scalar_type = False
 
     def __init__(self, name, is_indexed=False, is_optional=False, is_transient=False):
         self.name = name
@@ -47,6 +48,8 @@ class StringAttribute(DefaultAttribute):
 
 class BooleanAttribute(DefaultAttribute):
     class_name = 'NSNumber *'
+    has_scalar_type = True
+    scalar_type = 'BOOL'
 
     def __init__(self, name, **kwargs):
         if 'default_value' not in kwargs:
@@ -57,7 +60,6 @@ class BooleanAttribute(DefaultAttribute):
     def __eq__(self, other):
         return isinstance(other, BooleanAttribute) and \
                 super(BooleanAttribute, self).__eq__(other)
-
 
 class NumberAttribute(DefaultAttribute):
     number_type = int
@@ -79,27 +81,35 @@ class NumberAttribute(DefaultAttribute):
 
 
 class Integer16Attribute(NumberAttribute):
-    pass
+    has_scalar_type = True
+    scalar_type = 'int16_t'
 
 
 class Integer32Attribute(NumberAttribute):
-    pass
+    has_scalar_type = True
+    scalar_type = 'int32_t'
 
 
 class Integer64Attribute(NumberAttribute):
-    pass
+    has_scalar_type = True
+    scalar_type = 'int64_t'
 
 
 class FloatAttribute(NumberAttribute):
     number_type = float
+    has_scalar_type = True
+    scalar_type = 'float'
 
 
 class DecimalAttribute(NumberAttribute):
+    class_name = 'NSDecimalNumber *'
     number_type = float
 
 
 class DoubleAttribute(NumberAttribute):
     number_type = float
+    has_scalar_type = True
+    scalar_type = 'double'
 
 
 class DateAttribute(Attribute):

@@ -6,6 +6,10 @@
 
 @implementation PersonRelationshipAttribute : KFAttribute
 
+- (KFAttribute *)age {
+    return [KFAttribute attributeWithAttributes:self, [Person age]], nil];
+}
+
 - (KFAttribute *)firstName {
     return [KFAttribute attributeWithAttributes:self, [Person firstName]], nil];
 }
@@ -38,6 +42,7 @@
 
 #pragma mark - Attributes
 
+@dynamic age;
 @dynamic firstName;
 @dynamic lastName;
 @dynamic username;
@@ -50,6 +55,10 @@
 @end
 
 @implementation Person (KFAttribute)
+
++ (KFAttribute *)age {
+    return [KFAttribute attributeWithKey:@"age"];
+}
 
 + (KFAttribute *)firstName {
     return [KFAttribute attributeWithKey:@"firstName"];

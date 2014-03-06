@@ -3,13 +3,14 @@ import os
 from tempfile import NamedTemporaryFile
 
 from kfdata.entity import Entity
-from kfdata.attributes import StringAttribute
+from kfdata.attributes import *
 from kfdata.relationship import Relationship
 from kfdata.generator import EntityInterfaceWriter, EntityImplementationWriter
 
 class GeneratorTests(unittest.TestCase):
     def fixture_entity(self):
         return Entity('Person', attributes=[
+            Integer32Attribute('age', is_indexed=True),
             StringAttribute('firstName', is_optional=True),
             StringAttribute('lastName', is_optional=True),
             StringAttribute('username', is_indexed=True),
