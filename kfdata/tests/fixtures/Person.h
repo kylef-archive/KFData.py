@@ -27,6 +27,9 @@
 /** country */
 - (CountryRelationshipAttribute *)country;
 
+/** camcelCaseRelation */
+- (KFAttribute *)camcelCaseRelation;
+
 @end
 
 @interface Person : NSManagedObject
@@ -53,14 +56,24 @@
 /** country (required) */
 @property (nonatomic, retain) Country *country;
 
+/** camcelCaseRelation (required) */
+@property (nonatomic, retain) NSSet *camcelCaseRelation;
+
 @end
 
 @interface Person (CoreDataGeneratedAccessors)
 
+#pragma mark - companies accessors
 - (void)addCompaniesObject:(NSManagedObject *)value;
 - (void)removeCompaniesObject:(NSManagedObject *)value;
 - (void)addCompanies:(NSOrderedSet *)values;
 - (void)removeCompanies:(NSOrderedSet *)values;
+
+#pragma mark - camcelCaseRelation accessors
+- (void)addCamcelCaseRelationObject:(NSManagedObject *)value;
+- (void)removeCamcelCaseRelationObject:(NSManagedObject *)value;
+- (void)addCamcelCaseRelation:(NSSet *)values;
+- (void)removeCamcelCaseRelation:(NSSet *)values;
 
 @end
 
@@ -83,5 +96,8 @@
 
 /** country */
 + (CountryRelationshipAttribute *)country;
+
+/** camcelCaseRelation */
++ (KFAttribute *)camcelCaseRelation;
 
 @end

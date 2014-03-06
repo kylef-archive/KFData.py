@@ -16,7 +16,8 @@ class GeneratorTests(unittest.TestCase):
             StringAttribute('username', is_indexed=True),
         ], relationships=[
             Relationship('companies', 'Company', is_optional=True, is_ordered=True),
-            Relationship('country', 'Country', is_optional=False, maximum_count=1)
+            Relationship('country', 'Country', is_optional=False, maximum_count=1),
+            Relationship('camcelCaseRelation', 'Company'),
         ])
 
     def test_entity_header_writer(self):

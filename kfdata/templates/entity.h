@@ -53,10 +53,11 @@
 @interface {{ entity.represented_class_name }} (CoreDataGeneratedAccessors)
 
 {% for relationship in entity.to_many_relationships %}
-- (void)add{{ relationship|capitalize }}Object:(NSManagedObject *)value;
-- (void)remove{{ relationship|capitalize }}Object:(NSManagedObject *)value;
-- (void)add{{ relationship|capitalize }}:({{ relationship.class_name }})values;
-- (void)remove{{ relationship|capitalize }}:({{ relationship.class_name }})values;
+#pragma mark - {{ relationship }} accessors
+- (void)add{{ relationship.capitalized_name }}Object:(NSManagedObject *)value;
+- (void)remove{{ relationship.capitalized_name }}Object:(NSManagedObject *)value;
+- (void)add{{ relationship.capitalized_name }}:({{ relationship.class_name }})values;
+- (void)remove{{ relationship.capitalized_name }}:({{ relationship.class_name }})values;
 
 {% endfor %}
 @end

@@ -46,3 +46,7 @@ class Relationship(object):
             return self.destination_entity_class_name + 'RelationshipAttribute'
         else:
             return 'KFAttribute'
+
+    @property
+    def capitalized_name(self):
+        return self.name[0].upper() + self.name[1:]

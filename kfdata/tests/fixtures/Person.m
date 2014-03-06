@@ -32,6 +32,11 @@
     return [CountryRelationshipAttribute attributeWithAttributes:self, [Person country], nil];
 }
 
+/** camcelCaseRelation */
+- (KFAttribute *)camcelCaseRelation {
+    return [KFAttribute attributeWithAttributes:self, [Person camcelCaseRelation], nil];
+}
+
 @end
 
 @implementation Person
@@ -51,6 +56,7 @@
 
 @dynamic companies;
 @dynamic country;
+@dynamic camcelCaseRelation;
 
 @end
 
@@ -78,6 +84,10 @@
 
 + (CountryRelationshipAttribute *)country {
     return [CountryRelationshipAttribute attributeWithKey:@"country"];
+}
+
++ (KFAttribute *)camcelCaseRelation {
+    return [KFAttribute attributeWithKey:@"camcelCaseRelation"];
 }
 
 @end
