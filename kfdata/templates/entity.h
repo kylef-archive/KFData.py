@@ -44,7 +44,7 @@
 {% endfor %}
 {% for relationship in entity.relationships %}
 /** {{ relationship.name }} ({% if relationship.is_optional %}optional{% else %}required{% endif %}) */
-@property (nonatomic, strong) {{ relationship.class_name }}{{ relationship.name }};
+@property (nonatomic, retain) {{ relationship.class_name }}{{ relationship.name }};
 
 {% endfor %}
 @end
