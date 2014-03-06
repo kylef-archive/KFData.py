@@ -1,4 +1,6 @@
 class Attribute(object):
+    class_name = 'id '
+
     def __init__(self, name, is_indexed=False, is_optional=False, is_transient=False):
         self.name = name
         self.is_indexed = is_indexed
@@ -18,6 +20,9 @@ class Attribute(object):
                 other.is_optional == self.is_optional and \
                 other.is_transient == self.is_transient
 
+    @property
+    def attribute_class(self):
+        return 'KFAttribute'
 
 class DefaultAttribute(Attribute):
     def __init__(self, name, default_value=None, **kwargs):
@@ -31,6 +36,8 @@ class DefaultAttribute(Attribute):
 
 
 class StringAttribute(DefaultAttribute):
+    class_name = 'NSString *'
+
     def __init__(self, name, **kwargs):
         if 'default_value' not in kwargs:
             kwargs['default_value'] = ''
@@ -39,6 +46,8 @@ class StringAttribute(DefaultAttribute):
 
 
 class BooleanAttribute(DefaultAttribute):
+    class_name = 'NSNumber *'
+
     def __init__(self, name, **kwargs):
         if 'default_value' not in kwargs:
             kwargs['default_value'] = False
@@ -52,6 +61,7 @@ class BooleanAttribute(DefaultAttribute):
 
 class NumberAttribute(DefaultAttribute):
     number_type = int
+    class_name = 'NSNumber *'
 
     def __init__(self, name, minimum_value=None, maximum_value=None, **kwargs):
         if 'default_value' not in kwargs:
@@ -93,11 +103,11 @@ class DoubleAttribute(NumberAttribute):
 
 
 class DateAttribute(Attribute):
-    pass
+    class_name = 'NSDate *'
 
 
 class BinaryAttribute(Attribute):
-    pass
+    class_name = 'NSData *'
 
 
 class TransformerAttribute(Attribute):

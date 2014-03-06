@@ -7,25 +7,25 @@
 @implementation PersonRelationshipAttribute : KFAttribute
 
 - (KFAttribute *)firstName {
-    return [KFAttribute attributeWithAttributes:self, [KFAttribute attributeWithKey:@"firstName"], nil];
+    return [KFAttribute attributeWithAttributes:self, [Person firstName]], nil];
 }
 
 - (KFAttribute *)lastName {
-    return [KFAttribute attributeWithAttributes:self, [KFAttribute attributeWithKey:@"lastName"], nil];
+    return [KFAttribute attributeWithAttributes:self, [Person lastName]], nil];
 }
 
 - (KFAttribute *)username {
-    return [KFAttribute attributeWithAttributes:self, [KFAttribute attributeWithKey:@"username"], nil];
+    return [KFAttribute attributeWithAttributes:self, [Person username]], nil];
 }
 
 /** companies */
-- (KFAttrbute *)companies {
-    return [KFAttrbute attributeWithAttributes:self, [KFAttribute attributeWithKey:companies], nil];
+- (KFAttribute *)companies {
+    return [KFAttribute attributeWithAttributes:self, [Person companies], nil];
 }
 
 /** country */
 - (CountryRelationshipAttribute *)country {
-    return [CountryRelationshipAttribute attributeWithAttributes:self, [KFAttribute attributeWithKey:country], nil];
+    return [CountryRelationshipAttribute attributeWithAttributes:self, [Person country], nil];
 }
 
 @end
@@ -63,8 +63,8 @@
     return [KFAttribute attributeWithKey:@"username"];
 }
 
-+ (KFAttrbute *)companies {
-    return [KFAttrbute attributeWithKey:@"companies"];
++ (KFAttribute *)companies {
+    return [KFAttribute attributeWithKey:@"companies"];
 }
 
 + (CountryRelationshipAttribute *)country {

@@ -29,3 +29,20 @@ class Relationship(object):
     @property
     def is_to_one(self):
         return self.maximum_count == 1
+
+    @property
+    def class_name(self):
+        if self.is_to_many:
+            if self.is_ordered:
+                return 'NSOrderedSet *'
+            else:
+                return 'NSSet *'
+        else:
+            return self.destination_entity_class_name + ' *'
+
+    @property
+    def attribute_class(self):
+        if self.is_to_one:
+            return self.destination_entity_class_name + 'RelationshipAttribute'
+        else:
+            return 'KFAttribute'

@@ -19,7 +19,7 @@
 - (KFAttribute *)username;
 
 /** companies */
-- (KFAttrbute *)companies;
+- (KFAttribute *)companies;
 
 /** country */
 - (CountryRelationshipAttribute *)country;
@@ -33,13 +33,13 @@
 #pragma mark - Properties
 
 /** firstName (optional) */
-@property (nonatomic, strong) firstName;
+@property (nonatomic, strong) NSString *firstName;
 
 /** lastName (optional) */
-@property (nonatomic, strong) lastName;
+@property (nonatomic, strong) NSString *lastName;
 
 /** username (required) */
-@property (nonatomic, strong) username;
+@property (nonatomic, strong) NSString *username;
 
 /** companies (optional) */
 @property (nonatomic, strong) NSOrderedSet *companies;
@@ -61,7 +61,7 @@
 + (KFAttribute *)username;
 
 /** companies */
-+ (KFAttrbute *)companies;
++ (KFAttribute *)companies;
 
 /** country */
 + (CountryRelationshipAttribute *)country;

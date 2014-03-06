@@ -21,12 +21,12 @@
 
 {% for attribute in entity.attributes %}
 /** {{ attribute }} */
-- (KFAttribute *){{ attribute }};
+- ({{ attribute.attribute_class }} *){{ attribute }};
 
 {% endfor %}
 {% for relationship in entity.relationships %}
 /** {{ relationship }} */
-- ({% if relationship.is_to_one %}{{ relationship.destination_entity_class_name }}RelationshipAttribute{% else %}KFAttrbute{% endif %} *){{ relationship }};
+- ({{ relationship.attribute_class }} *){{ relationship }};
 
 {% endfor %}
 @end
@@ -40,12 +40,12 @@
 
 {% for attribute in entity.attributes %}
 /** {{ attribute.name }} ({% if attribute.is_optional %}optional{% else %}required{% endif %}) */
-@property (nonatomic, strong) {{ attribute.attribute_type }}{{ attribute.name }};
+@property (nonatomic, strong) {{ attribute.class_name }}{{ attribute.name }};
 
 {% endfor %}
 {% for relationship in entity.relationships %}
 /** {{ relationship.name }} ({% if relationship.is_optional %}optional{% else %}required{% endif %}) */
-@property (nonatomic, strong) {% if relationship.is_to_many %}NS{% if relationship.is_ordered %}Ordered{% endif %}Set{% else %}{{ relationship.destination_entity_class_name }}{% endif %} *{{ relationship.name }};
+@property (nonatomic, strong) {{ relationship.class_name }}{{ relationship.name }};
 
 {% endfor %}
 @end
@@ -60,7 +60,7 @@
 {% endfor %}
 {% for relationship in entity.relationships %}
 /** {{ relationship }} */
-+ ({% if relationship.is_to_one %}{{ relationship.destination_entity_class_name }}RelationshipAttribute{% else %}KFAttrbute{% endif %} *){{ relationship }};
++ ({{ relationship.attribute_class }} *){{ relationship }};
 
 {% endfor %}
 @end
