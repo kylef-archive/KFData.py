@@ -8,10 +8,20 @@ def filename_for_extension(basepath, filename, extension):
     return os.path.join(basepath, filename + '.' + extension)
 
 def main():
-    filename = sys.argv[1]
+    if len(sys.argv) < 3:
+       print('Usage: {} [input model] [output directory]'.format(sys.argv[0]))
+       exit(0)
+
+    filename = os.path.abspath(sys.argv[1])
     output_folder = sys.argv[2]
 
+    if os.path.splitext(filename)[1] == '.xcdatamodeld':
+        filename = os.path.join(filename, 'Model.xcdatamodel/contents')
+
     model = ModelParser.parse_file(filename)
+
+    if os.path.isdir(output_folder) is False:
+        os.mkdir(output_folder)
 
     for entity in model.entities:
         name = entity.name
@@ -25,4 +35,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
