@@ -77,6 +77,9 @@ class NumberAttributeParser(DefaultAttributeParser):
         }
 
         default_value_string = document.getAttribute('defaultValueString')
+        if default_value_string:
+            value = classes[attribute_type](default_value_string)
+        else:
+            value = classes[attribute_type](0)
 
-
-        return classes[attribute_type](default_value_string)
+        return value
