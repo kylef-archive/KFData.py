@@ -28,3 +28,11 @@ class Entity(object):
         if self.parent_entity:
             return self.parent_entity.represented_class_name
         return 'NSManagedObject'
+
+    @property
+    def to_many_relationships(self):
+        return [relationship for relationship in self.relationships if relationship.is_to_many]
+
+    @property
+    def to_one_relationships(self):
+        return [relationship for relationship in self.relationships if relationship.is_to_one]

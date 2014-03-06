@@ -2,10 +2,9 @@
 //
 
 #import "{{ entity }}.h"
-{% for relationship in entity.relationships %}
-{% if relationship.is_to_one %}#import "{{ relationship.destination_entity }}.h"{% endif %}
+{% for relationship in entity.to_one_relationships %}
+#import "{{ relationship.destination_entity }}.h"
 {% endfor %}
-
 
 {% if kfattribute %}
 @implementation {{ entity.represented_class_name }}RelationshipAttribute : KFAttribute

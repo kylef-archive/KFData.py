@@ -11,10 +11,9 @@
 #import <KFData/KFData.h>
 {% endif %}
 
-{% for relationship in entity.relationships %}
-{% if relationship.is_to_one %}@class {{ relationship.destination_entity_class_name }}{% if kfattribute %}, {{ relationship.destination_entity_class_name }}RelationshipAttribute{% endif %};{% endif %}
+{% for relationship in entity.to_one_relationships %}
+@class {{ relationship.destination_entity_class_name }}{% if kfattribute %}, {{ relationship.destination_entity_class_name }}RelationshipAttribute{% endif %};
 {% endfor %}
-
 
 {% if kfattribute %}
 @interface {{ entity.represented_class_name }}RelationshipAttribute : KFAttribute
