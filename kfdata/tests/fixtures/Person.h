@@ -49,6 +49,15 @@
 
 @end
 
+@implementation Person (CoreDataGeneratedAccessors)
+
+- (void)addCompaniesObject:(NSManagedObject *)value;
+- (void)removeCompaniesObject:(NSManagedObject *)value;
+- (void)addCompanies:(NSOrderedSet *)values;
+- (void)removeCompanies:(NSOrderedSet *)values;
+
+@end
+
 @implementation Person (KFAttribute)
 
 /** firstName */

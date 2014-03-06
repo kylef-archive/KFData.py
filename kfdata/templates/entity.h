@@ -49,6 +49,19 @@
 {% endfor %}
 @end
 
+{% if entity.to_many_relationships %}
+@implementation {{ entity.represented_class_name }} (CoreDataGeneratedAccessors)
+
+{% for relationship in entity.to_many_relationships %}
+- (void)add{{ relationship|capitalize }}Object:(NSManagedObject *)value;
+- (void)remove{{ relationship|capitalize }}Object:(NSManagedObject *)value;
+- (void)add{{ relationship|capitalize }}:({{ relationship.class_name }})values;
+- (void)remove{{ relationship|capitalize }}:({{ relationship.class_name }})values;
+
+{% endfor %}
+@end
+{% endif %}
+
 {% if kfattribute %}
 @implementation {{ entity.represented_class_name }} (KFAttribute)
 
